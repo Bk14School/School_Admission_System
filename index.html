@@ -805,7 +805,7 @@
             document.getElementById('btnSubmit').style.display = 'none';
         }
 
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+document.getElementById('admissionForm').scrollIntoView({ behavior: 'smooth', block: 'start' });        
     }
 
     function validateStep(step) { 

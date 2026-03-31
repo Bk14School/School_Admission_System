@@ -818,7 +818,8 @@ function validateStep(step) {
         stepEl.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
         stepEl.querySelectorAll('.invalid-feedback').forEach(el => el.remove());
 
-        required.forEach(el => {
+ required.forEach(el => {
+            // select ที่มี option แรกเป็น "" คือยังไม่เลือก
             const isEmpty = !el.value || el.value.trim() === '';
             if (isEmpty) {
                 markInvalid(el, 'กรุณากรอกข้อมูลในช่องนี้');
@@ -859,9 +860,8 @@ function validateStep(step) {
         return valid;
     }
 
-    function markInvalid(el, msg) {
+   function markInvalid(el, msg) {
         el.classList.add('is-invalid');
-        // ลบ feedback เก่าออกก่อน
         const old = el.parentElement.querySelector('.invalid-feedback');
         if (old) old.remove();
         const fb = document.createElement('div');
@@ -869,13 +869,16 @@ function validateStep(step) {
         fb.style.display = 'block';
         fb.textContent = msg;
         el.parentElement.appendChild(fb);
-        // ลบ error อัตโนมัติเมื่อผู้ใช้แก้ไข
-        el.addEventListener('input', function onFix() {
+
+        // รองรับทั้ง input และ select
+        const eventName = el.tagName === 'SELECT' ? 'change' : 'input';
+        el.addEventListener(eventName, function onFix() {
             el.classList.remove('is-invalid');
-            fb.remove();
-            el.removeEventListener('input', onFix);
+            if (fb.parentElement) fb.remove();
+            el.removeEventListener(eventName, onFix);
         }, { once: true });
     }
+    
     
     function generateSummary() { 
         const g = (col) => { const el = document.querySelector('[data-col="' + col + '"]'); return el ? (el.value || '-') : '-'; }; 

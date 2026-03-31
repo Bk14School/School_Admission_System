@@ -808,20 +808,73 @@
 document.getElementById('admissionForm').scrollIntoView({ behavior: 'smooth', block: 'start' });        
     }
 
-    function validateStep(step) { 
-        const stepEl = document.getElementById('step-' + step); 
-        const required = stepEl.querySelectorAll('[required]'); 
-        let valid = true; 
-        required.forEach(el => { 
-            el.classList.remove('is-invalid'); 
-            if (!el.value || el.value.trim() === '') { el.classList.add('is-invalid'); valid = false; } 
-        }); 
-        if (step === 1) { 
-            const idCard = document.getElementById('formIdCard'); 
-            if (idCard.value.length !== 13 || !/^\d{13}$/.test(idCard.value)) { idCard.classList.add('is-invalid'); valid = false; } 
-        } 
-        if (!valid) alert('กรุณากรอกข้อมูลที่จำเป็น (*) ให้ครบถ้วน'); 
-        return valid; 
+function validateStep(step) {
+        const stepEl = document.getElementById('step-' + step);
+        const required = stepEl.querySelectorAll('[required]');
+        let valid = true;
+        let errorMessages = [];
+
+        // ลบ error เก่าทั้งหมด
+        stepEl.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+        stepEl.querySelectorAll('.invalid-feedback').forEach(el => el.remove());
+
+        required.forEach(el => {
+            const isEmpty = !el.value || el.value.trim() === '';
+            if (isEmpty) {
+                markInvalid(el, 'กรุณากรอกข้อมูลในช่องนี้');
+                const label = el.closest('.col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-8, .col-12')
+                    ?.querySelector('.form-label')?.textContent?.replace('*','').trim();
+                errorMessages.push(label || 'ช่องที่ต้องกรอก');
+                valid = false;
+            }
+        });
+
+        // ตรวจเลข ปชช. นักเรียน (step 1)
+        if (step === 1) {
+            const idCard = document.getElementById('formIdCard');
+            if (idCard.value && (idCard.value.length !== 13 || !/^\d{13}$/.test(idCard.value))) {
+                markInvalid(idCard, 'เลขบัตรประชาชนต้องเป็นตัวเลข 13 หลัก');
+                if (!errorMessages.includes('เลข ปชช.')) errorMessages.push('เลข ปชช. (รูปแบบไม่ถูกต้อง)');
+                valid = false;
+            }
+        }
+
+        // ตรวจเลข ปชช. ผู้ปกครอง (step 4)
+        if (step === 4) {
+            const gId = document.getElementById('gId');
+            if (gId.value && (gId.value.length !== 13 || !/^\d{13}$/.test(gId.value))) {
+                markInvalid(gId, 'เลขบัตรประชาชนต้องเป็นตัวเลข 13 หลัก');
+                if (!errorMessages.find(m => m.includes('ปชช. ผู้ปกครอง'))) errorMessages.push('เลข ปชช. ผู้ปกครอง (รูปแบบไม่ถูกต้อง)');
+                valid = false;
+            }
+        }
+
+        if (!valid) {
+            const list = errorMessages.map(m => `• ${m}`).join('\n');
+            alert(`⚠️ กรุณากรอกข้อมูลให้ครบถ้วน:\n\n${list}`);
+            // เลื่อนไปยังฟิลด์แรกที่ผิด
+            const firstInvalid = stepEl.querySelector('.is-invalid');
+            if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return valid;
+    }
+
+    function markInvalid(el, msg) {
+        el.classList.add('is-invalid');
+        // ลบ feedback เก่าออกก่อน
+        const old = el.parentElement.querySelector('.invalid-feedback');
+        if (old) old.remove();
+        const fb = document.createElement('div');
+        fb.className = 'invalid-feedback';
+        fb.style.display = 'block';
+        fb.textContent = msg;
+        el.parentElement.appendChild(fb);
+        // ลบ error อัตโนมัติเมื่อผู้ใช้แก้ไข
+        el.addEventListener('input', function onFix() {
+            el.classList.remove('is-invalid');
+            fb.remove();
+            el.removeEventListener('input', onFix);
+        }, { once: true });
     }
     
     function generateSummary() { 

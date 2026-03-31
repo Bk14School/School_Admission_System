@@ -14,7 +14,6 @@
 
     <style>
         :root {
-            /* โทนสี Modern Blue & Gold */
             --primary: #0ea5e9;
             --primary-light: #e0f2fe;
             --primary-dark: #0284c7;
@@ -38,7 +37,6 @@
         * { box-sizing: border-box; }
         body { font-family: 'Prompt', sans-serif; background: var(--bg); color: var(--text); margin: 0; min-height: 100vh; line-height: 1.6; }
 
-        /* ===== Navbar Glassmorphism ===== */
         .app-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); border-bottom: 1px solid rgba(0,0,0,0.05); padding: 12px 0; }
         .app-nav .container { display: flex; align-items: center; justify-content: space-between; }
         .app-nav .brand { display: flex; align-items: center; gap: 12px; color: var(--primary-dark); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
@@ -49,7 +47,6 @@
         .nav-btn.accent { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(14,165,233,0.3); }
         .nav-btn.accent:hover { background: var(--primary-dark); transform: translateY(-1px); }
 
-        /* ===== Landing Modern Hero ===== */
         .landing { background: linear-gradient(180deg, var(--primary-light) 0%, var(--bg) 100%); padding: 80px 20px 60px; text-align: center; position: relative; }
         .landing-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
         .landing .logo-placeholder { width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 24px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: var(--shadow); border: 4px solid #fff; }
@@ -63,13 +60,11 @@
         .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; border: none; padding: 16px 48px; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3); font-family: inherit; }
         .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(14, 165, 233, 0.4); color: #fff; }
 
-        /* ===== Cards & Containers ===== */
         .app-card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding: 36px; margin-bottom: 30px; border: 1px solid rgba(0,0,0,0.02); transition: transform 0.3s, box-shadow 0.3s; }
         .feature-card { padding: 30px; text-align: center; height: 100%; }
         .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
         .feature-icon { width: 64px; height: 64px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; border-radius: 20px; font-size: 1.8rem; background: var(--primary-light); color: var(--primary-dark); }
 
-        /* ===== Step Indicator ===== */
         .wizard-step { display: none; animation: fadeSlideUp 0.4s ease forwards; }
         .wizard-step.active { display: block; }
         @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
@@ -86,7 +81,6 @@
         .step-item.completed .step-circle::after { content: '✓'; }
         .step-item.completed .step-label { color: var(--success); }
 
-        /* ===== Form Styling Modern ===== */
         .form-label { font-weight: 500; font-size: 0.9rem; color: var(--text); margin-bottom: 6px; }
         .form-control, .form-select { border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 12px 16px; font-size: 0.95rem; background-color: var(--bg); transition: all 0.25s ease; color: var(--text); }
         .form-control:focus, .form-select:focus { background-color: #fff; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15); outline: none; }
@@ -94,7 +88,6 @@
         .section-title { font-size: 1.25rem; font-weight: 600; color: var(--primary-dark); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px dashed var(--border); display: flex; align-items: center; gap: 10px; }
         .sub-title { font-size: 1rem; font-weight: 600; color: var(--secondary); margin: 24px 0 16px; }
 
-        /* ===== Buttons ===== */
         .btn { padding: 10px 24px; border-radius: var(--radius-sm); font-weight: 500; transition: all 0.2s; font-family: inherit; }
         .btn-primary { background: var(--primary); border-color: var(--primary); box-shadow: 0 4px 10px rgba(14,165,233,0.2); }
         .btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 6px 15px rgba(14,165,233,0.3); }
@@ -103,13 +96,11 @@
         .btn-outline-primary { color: var(--primary); border-color: var(--primary); }
         .btn-outline-primary:hover { background: var(--primary-light); color: var(--primary-dark); border-color: var(--primary); }
 
-        /* ===== Photo Upload ===== */
         .photo-upload-area { border: 2px dashed #cbd5e1; border-radius: var(--radius-sm); padding: 24px 16px; text-align: center; cursor: pointer; transition: all 0.3s; background: #fff; }
         .photo-upload-area:hover { border-color: var(--primary); background: var(--primary-light); }
         .photo-upload-area.has-photo { border-style: solid; border-color: var(--success); padding: 12px; background: #fff;}
         .photo-preview-thumb { width: 110px; height: 146px; object-fit: cover; border-radius: 8px; border: 2px solid var(--border); box-shadow: var(--shadow-sm); }
         
-        /* ===== Address Autocomplete ===== */
         .addr-group { position: relative; }
         .addr-dropdown { display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 1050; max-height: 220px; overflow-y: auto; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); padding: 8px 0; }
         .addr-dropdown.show { display: block; animation: fadeIn 0.2s ease; }
@@ -117,7 +108,6 @@
         .addr-item:hover { background: var(--primary-light); color: var(--primary-dark); }
         .addr-input.has-value { border-color: var(--success); background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2310b981"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>'); background-repeat: no-repeat; background-position: right 12px center; background-size: 18px; padding-right: 36px; }
 
-        /* ===== Dashboard & DataTables ===== */
         .table-wrap { background: #fff; border-radius: var(--radius-sm); padding: 16px; border: 1px solid var(--border); width: 100%; overflow-x: auto; }
         table.dataTable { margin-top: 10px !important; margin-bottom: 16px !important; width: 100% !important; }
         table.dataTable thead th { background: var(--bg); color: var(--secondary); font-weight: 600; text-transform: uppercase; font-size: 0.8rem; border-bottom: 2px solid var(--border) !important; padding: 8px 10px !important; white-space: nowrap; }
@@ -129,12 +119,25 @@
         .page-item.active .page-link { background-color: var(--primary); border-color: var(--primary); }
         .dataTables_wrapper .dataTables_paginate .paginate_button { padding: 0 !important; border: none !important; margin: 0 !important; }
         
-        /* Stats Dashboard */
         .stat-card-modern { background: #fff; border-radius: var(--radius-sm); padding: 20px; border: 1px solid var(--border); display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow-sm); }
         .stat-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
         .stat-info h3 { margin: 0; font-size: 1.6rem; font-weight: 700; color: var(--text); }
         .stat-info p { margin: 0; font-size: 0.85rem; color: var(--secondary); font-weight: 500; }
         .alert-info-modern { background: var(--primary-light); border-left: 4px solid var(--primary); color: var(--primary-dark); padding: 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: 24px; }
+
+        /* ===== FIX: ปุ่มกดบนมือถือ ===== */
+        #btnSubmit, #btnNext, #btnPrev {
+            min-height: 48px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .form-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
 
         @media (max-width: 768px) {
             .app-card { padding: 20px; }
@@ -148,6 +151,32 @@
             .step-label { font-size: 0.9rem; }
             .nav-btn { padding: 6px 12px; font-size: 0.8rem; }
             .table-wrap { padding: 10px; }
+
+            /* FIX: sticky bottom bar บนมือถือ */
+            .form-bottom-bar {
+                position: sticky;
+                bottom: 0;
+                background: #fff;
+                padding: 16px 20px;
+                margin: 0 -20px;
+                border-top: 1px solid var(--border);
+                box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+                z-index: 50;
+                padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+            }
+            #btnSubmit {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 1.05rem;
+            }
+            #btnNext {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+            #btnPrev {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -268,7 +297,6 @@
                 </div>
             </div>
 
-            <!-- Stats -->
             <div class="row mb-4 g-3">
                 <div class="col-md-3 col-6"><div class="stat-card-modern"><div class="stat-icon bg-primary text-white bg-opacity-10" style="color:var(--primary)!important;">📋</div><div class="stat-info"><h3 id="statTotal">0</h3><p>ผู้สมัครทั้งหมด</p></div></div></div>
                 <div class="col-md-3 col-6"><div class="stat-card-modern"><div class="stat-icon bg-warning text-dark bg-opacity-25">⏳</div><div class="stat-info"><h3 id="statPending">0</h3><p>รอตรวจสอบ</p></div></div></div>
@@ -309,9 +337,8 @@
     <div id="formSection" style="display:none;">
         <div class="app-card">
             <h4 class="fw-bold text-primary mb-1">📝 กรอกใบสมัครเข้าเรียน</h4>
-<p class="text-muted mb-3">ประจำปีการศึกษา <span id="displayYear" class="fw-bold text-dark">1/2568</span></p>
+            <p class="text-muted mb-3">ประจำปีการศึกษา <span id="displayYear" class="fw-bold text-dark">1/2568</span></p>
 
-            <!-- ===== กล่องข้อความแจ้งเตือนเอกสาร ===== -->
             <div class="p-3 mb-4 rounded-3" style="background-color: var(--primary-light); border: 1px solid rgba(14, 165, 233, 0.2);">
                 <h6 class="fw-bold mb-2" style="color: var(--primary-dark);">
                     📌 เอกสารที่ต้องเตรียม (นำมามอบให้ในวันรายงานตัว)
@@ -325,17 +352,14 @@
                     📞 สอบถามรายละเอียดเพิ่มเติม โทร: 081-408-6563 (คุณครูสุมาลี เซ็ม)
                 </div>
             </div>
-            <!-- ===== เพิ่มใหม่: กล่องเกณฑ์การนับอายุ ===== -->
+
             <div class="p-3 mb-4 rounded-3 bg-white" style="border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
                 <h6 class="fw-bold mb-3 d-flex align-items-center gap-2" style="color: var(--text);">
                     <span style="font-size:1.3rem;">🎂</span> เกณฑ์การนับอายุเข้าเรียน ปีการศึกษา <span id="criteriaYearDisplay" class="text-primary">...</span>
                 </h6>
-                <div id="ageCriteriaContent" class="small" style="line-height: 1.6;">
-                    <!-- ข้อมูลจะถูกสร้างและคำนวณอัตโนมัติด้วย JavaScript -->
-                </div>
+                <div id="ageCriteriaContent" class="small" style="line-height: 1.6;"></div>
             </div>
-            <!-- ======================================= -->
-            <!-- ======================================= -->            
+
             <div class="step-wrapper">
                 <div class="step-indicator">
                     <div class="step-item active" id="ind-1"><div class="step-circle">1</div><div class="step-label">ข้อมูลนักเรียน</div></div>
@@ -466,9 +490,7 @@
                             <option value="รถยนต์ส่วนบุคคล">รถยนต์ส่วนบุคคล</option>
                             <option value="รถรับส่งนักเรียน">รถรับส่งนักเรียน</option>
                             <option value="ยานพาหนะไม่เสียค่าใช้จ่าย">ยานพาหนะไม่เสียค่าใช้จ่าย</option>
-
-                        </select>
-                        </div>
+                        </select></div>
                         <div class="col-md-4"><label class="form-label">ระยะเวลาเดินทาง (นาที)</label><input type="number" class="form-control" data-col="48"></div>
                         <div class="col-md-4"><label class="form-label">ห่างจาก รร. ถนนลาดยาง (เมตร)</label><input type="number" class="form-control" data-col="49" value="0"></div>
                     </div>
@@ -553,7 +575,8 @@
                     <div id="summaryContent" class="bg-light p-4 rounded-3 border"></div>
                 </div>
 
-                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                <!-- FIX: เพิ่ม class form-bottom-bar เพื่อให้ sticky บนมือถือ -->
+                <div class="form-bottom-bar">
                     <button type="button" class="btn btn-outline-secondary px-4" id="btnPrev" onclick="changeStep(-1)" style="display:none;">← ย้อนกลับ</button>
                     <div class="ms-auto">
                         <button type="button" class="btn btn-primary px-5" id="btnNext" onclick="changeStep(1)">ถัดไป →</button>
@@ -573,7 +596,7 @@
 <!-- Modal ครอบตัดรูป -->
 <div class="modal fade" id="cropModal" tabindex="-1" data-bs-backdrop="static"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content border-0 shadow-lg" style="border-radius: var(--radius);"><div class="modal-header bg-light border-0 pb-2"><h5 class="modal-title fw-bold text-primary">ครอบตัดรูปถ่าย (สัดส่วน 3:4)</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body bg-light pt-0"><div class="img-container bg-dark rounded-3 overflow-hidden" style="max-height: 55vh;"><img id="cropImage" src="" alt="crop" style="display: block; max-width: 100%;"></div><div class="d-flex justify-content-center gap-2 mt-3"><button type="button" class="btn btn-sm btn-outline-secondary bg-white" onclick="cropperInstance.rotate(-90)">↺ ซ้าย</button><button type="button" class="btn btn-sm btn-outline-secondary bg-white" onclick="cropperInstance.rotate(90)">↻ ขวา</button><button type="button" class="btn btn-sm btn-outline-secondary bg-white" onclick="cropperInstance.scaleX(cropperInstance.getData().scaleX === -1 ? 1 : -1)">↔ พลิก</button><button type="button" class="btn btn-sm btn-outline-secondary bg-white" onclick="cropperInstance.reset()">🔄 คืนค่า</button></div></div><div class="modal-footer border-0 bg-light"><button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">ยกเลิก</button><button type="button" class="btn btn-primary px-4" onclick="confirmCrop()">บันทึกรูปภาพ</button></div></div></div></div>
 
-<!-- Modal ตั้งค่าระบบ (สำหรับแอดมิน) -->
+<!-- Modal ตั้งค่าระบบ -->
 <div class="modal fade" id="configModal" tabindex="-1" data-bs-backdrop="static">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg" style="border-radius: var(--radius);">
@@ -584,7 +607,7 @@
             <div class="modal-body bg-light pt-0">
                 <label class="form-label fw-bold">เปิดรับสมัคร ปีการศึกษา / เทอม</label>
                 <input type="text" id="configActiveYear" class="form-control form-control-lg" placeholder="เช่น 1/2569">
-                <small class="text-muted mt-2 d-block">📌 ค่านี้จะถูกนำไปอัปเดตบนหน้าเว็บของทุกคนโดยอัตโนมัติ (เช่น ระบบค้นหา, หน้าฟอร์มสมัครเรียน)</small>
+                <small class="text-muted mt-2 d-block">📌 ค่านี้จะถูกนำไปอัปเดตบนหน้าเว็บของทุกคนโดยอัตโนมัติ</small>
             </div>
             <div class="modal-footer border-0 bg-light">
                 <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">ยกเลิก</button>
@@ -605,51 +628,36 @@
 <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
 
 <script>
-    // URL สำหรับเรียกใช้งาน API ของ Google Apps Script
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwd6Ee2vliyJ2LPv5zYLHxVoLBZ6drSWstw_K7JMFGZtesyyNAJ1KX5BWVNdiTQ-tY-Pw/exec";
 
-   // ===============================================
-    // ระบบตั้งค่าดึงปีการศึกษาอัตโนมัติ (เพิ่มหน้าจอโหลด)
-    // ===============================================
     let currentActiveYear = "1/2568";
     
     document.addEventListener("DOMContentLoaded", () => {
-        // 1. เรียกหน้าต่างโหลดขึ้นมาทันทีที่เว็บเริ่มทำงาน
         showProgress('กำลังเข้าสู่ระบบ', 100);
-
-        // ดึงการตั้งค่าจาก Server เมื่อโหลดเว็บ
         fetch(WEB_APP_URL, { method: 'POST', body: JSON.stringify({ action: 'getConfig' }) })
         .then(r => r.json())
         .then(res => {
             if (res.status === 'success' && res.data.active_year) {
                 currentActiveYear = res.data.active_year;
-                // อัปเดตข้อมูลบนหน้าเว็บ
                 document.getElementById('landingYearDisplay').textContent = currentActiveYear;
                 document.getElementById('displayYear').textContent = currentActiveYear;
                 document.getElementById('applyYear').value = currentActiveYear;
                 document.getElementById('dashYear').value = currentActiveYear;
                 document.getElementById('adminYear').value = currentActiveYear;
-                                updateAgeCriteria(currentActiveYear);
-
+                updateAgeCriteria(currentActiveYear);
             }
         })
         .catch(e => console.log("Failed to load config"))
         .finally(() => {
-            // 2. ปิดหน้าจอโหลดเมื่อดึงข้อมูลเสร็จสิ้น
-            // ใส่หน่วงเวลา 0.3 วินาที เพื่อให้แอนิเมชันดูนุ่มนวล ไม่กระพริบเร็วเกินไป
-            setTimeout(() => {
-                hideProgress();
-            }, 300);
+            setTimeout(() => { hideProgress(); }, 300);
         });
     });
 
-    // เปิดหน้าต่าง Modal ตั้งค่า
     function openConfigModal() {
         document.getElementById('configActiveYear').value = currentActiveYear;
         new bootstrap.Modal(document.getElementById('configModal')).show();
     }
 
-    // บันทึกการตั้งค่าปีการศึกษา
     function saveConfig() {
         const newYear = document.getElementById('configActiveYear').value.trim();
         if (!newYear) { alert('กรุณากรอกปีการศึกษา'); return; }
@@ -657,7 +665,6 @@
             bootstrap.Modal.getInstance(document.getElementById('configModal')).hide(); 
             return; 
         }
-        
         showProgress('กำลังบันทึกการตั้งค่า...', 50);
         fetch(WEB_APP_URL, { 
             method: 'POST', 
@@ -675,8 +682,6 @@
         }).catch(() => { hideProgress(); alert('❌ ไม่สามารถเชื่อมต่อระบบได้'); });
     }
 
-
-    // ===== การตั้งค่าภาษาไทยให้ DataTables =====
     const dtLanguage = {
         "sProcessing": "กำลังดำเนินการ...",
         "sLengthMenu": "แสดง _MENU_ รายการ",
@@ -690,7 +695,6 @@
     let publicDt = null;
     let adminDt = null;
 
-    // ฟังก์ชันดึงรูปรองรับนโยบายใหม่ของ Google Drive
     function getValidImageUrl(url) {
         if (!url) return "";
         let match = url.match(/\/d\/([a-zA-Z0-9_-]+)/) || url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
@@ -708,19 +712,12 @@
 
     // ===== ฟังก์ชันคำนวณเกณฑ์อายุอัตโนมัติ =====
     function updateAgeCriteria(activeYearStr) {
-        // ดึงเฉพาะปี พ.ศ. ออกมาจากสตริง (เช่น "1/2569" จะได้ "2569")
         let parts = activeYearStr.split('/');
         let year = parts.length > 1 ? parseInt(parts[1]) : parseInt(parts[0]);
-        
         if (isNaN(year)) return;
-
-        // แสดงปีการศึกษาบนหัวข้อ
         document.getElementById('criteriaYearDisplay').textContent = year;
-
-        // สร้าง HTML ตามเกณฑ์ในรูปภาพ โดยคำนวณปี พ.ศ. อัตโนมัติ
         let html = `
             <div class="d-flex flex-column gap-3">
-
                 <div class="d-flex align-items-start gap-3 border-bottom pb-2">
                     <span class="badge rounded-pill" style="background-color: #92d9d9; color: #000; width: 70px; font-size: 0.85rem;">อนุบาล 2</span>
                     <div>
@@ -743,17 +740,89 @@
                         <div class="text-muted" style="font-size: 0.8rem;">(หรือนักเรียนที่จบชั้นก่อนประถมศึกษา อนุบาล 3)</div>
                     </div>
                 </div>
-            </div>
-        `;
-        
+            </div>`;
         document.getElementById('ageCriteriaContent').innerHTML = html;
     }
     
     // ===== Navigation =====
     let currentStep = 1; const totalSteps = 5;
-    function showSection(sectionId) {['formSection','dashboardSection','adminSection','landingSection'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; }); document.getElementById(sectionId).style.display = 'block'; window.scrollTo(0,0); }
-    function changeStep(n) { if (n > 0 && !validateStep(currentStep)) return; const steps = document.querySelectorAll('.wizard-step'); steps[currentStep - 1].classList.remove('active'); document.getElementById('ind-' + currentStep).classList.remove('active'); document.getElementById('ind-' + currentStep).classList.add('completed'); currentStep += n; steps[currentStep - 1].classList.add('active'); document.getElementById('ind-' + currentStep).classList.add('active'); document.getElementById('ind-' + currentStep).classList.remove('completed'); document.getElementById('btnPrev').style.display = currentStep === 1 ? 'none' : 'inline-block'; if (currentStep === totalSteps) { document.getElementById('btnNext').style.display = 'none'; document.getElementById('btnSubmit').style.display = 'inline-block'; generateSummary(); } else { document.getElementById('btnNext').style.display = 'inline-block'; document.getElementById('btnSubmit').style.display = 'none'; } window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    function validateStep(step) { const stepEl = document.getElementById('step-' + step); const required = stepEl.querySelectorAll('[required]'); let valid = true; required.forEach(el => { el.classList.remove('is-invalid'); if (!el.value || el.value.trim() === '') { el.classList.add('is-invalid'); valid = false; } }); if (step === 1) { const idCard = document.getElementById('formIdCard'); if (idCard.value.length !== 13 || !/^\d{13}$/.test(idCard.value)) { idCard.classList.add('is-invalid'); valid = false; } } if (!valid) alert('กรุณากรอกข้อมูลที่จำเป็น (*) ให้ครบถ้วน'); return valid; }
+    function showSection(sectionId) {
+        ['formSection','dashboardSection','adminSection','landingSection'].forEach(id => { 
+            const el = document.getElementById(id); 
+            if (el) el.style.display = 'none'; 
+        }); 
+        document.getElementById(sectionId).style.display = 'block'; 
+        window.scrollTo(0,0); 
+    }
+
+    // ===== FIX: ฟังก์ชัน changeStep ที่แก้ไขแล้ว =====
+    function changeStep(n) {
+        // ถ้าไปข้างหน้า ต้อง validate ก่อน
+        if (n > 0 && !validateStep(currentStep)) return;
+
+        const steps = document.querySelectorAll('.wizard-step');
+
+        // ซ่อน step ปัจจุบัน
+        steps[currentStep - 1].classList.remove('active');
+
+        // อัปเดต step indicator ของ step ปัจจุบัน
+        const currentInd = document.getElementById('ind-' + currentStep);
+        currentInd.classList.remove('active');
+
+        // FIX: เพิ่ม completed เฉพาะเมื่อไปข้างหน้าเท่านั้น
+        if (n > 0) {
+            currentInd.classList.add('completed');
+        }
+
+        // เปลี่ยน step
+        currentStep += n;
+
+        // แสดง step ใหม่
+        steps[currentStep - 1].classList.add('active');
+
+        // อัปเดต step indicator ของ step ใหม่
+        const newInd = document.getElementById('ind-' + currentStep);
+        newInd.classList.add('active');
+        newInd.classList.remove('completed');
+
+        // FIX: เมื่อย้อนกลับ ลบ completed ของ step ที่อยู่หลัง step ปัจจุบัน
+        if (n < 0) {
+            for (let i = currentStep + 1; i <= totalSteps; i++) {
+                document.getElementById('ind-' + i).classList.remove('completed');
+            }
+        }
+
+        // แสดง/ซ่อนปุ่ม
+        document.getElementById('btnPrev').style.display = currentStep === 1 ? 'none' : 'inline-block';
+        if (currentStep === totalSteps) {
+            document.getElementById('btnNext').style.display = 'none';
+            document.getElementById('btnSubmit').style.display = 'inline-block';
+            // FIX: reset disabled ทุกครั้งที่มาถึง step สุดท้าย
+            document.getElementById('btnSubmit').disabled = false;
+            generateSummary();
+        } else {
+            document.getElementById('btnNext').style.display = 'inline-block';
+            document.getElementById('btnSubmit').style.display = 'none';
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateStep(step) { 
+        const stepEl = document.getElementById('step-' + step); 
+        const required = stepEl.querySelectorAll('[required]'); 
+        let valid = true; 
+        required.forEach(el => { 
+            el.classList.remove('is-invalid'); 
+            if (!el.value || el.value.trim() === '') { el.classList.add('is-invalid'); valid = false; } 
+        }); 
+        if (step === 1) { 
+            const idCard = document.getElementById('formIdCard'); 
+            if (idCard.value.length !== 13 || !/^\d{13}$/.test(idCard.value)) { idCard.classList.add('is-invalid'); valid = false; } 
+        } 
+        if (!valid) alert('กรุณากรอกข้อมูลที่จำเป็น (*) ให้ครบถ้วน'); 
+        return valid; 
+    }
     
     function generateSummary() { 
         const g = (col) => { const el = document.querySelector('[data-col="' + col + '"]'); return el ? (el.value || '-') : '-'; }; 
@@ -824,7 +893,6 @@
                 let d = new Date(s.timestamp).toLocaleDateString('th-TH'); 
                 let phone = s.rawData[85] || '-'; if(phone.startsWith("'")) phone = phone.substring(1); 
                 
-                // ใช้ getValidImageUrl สำหรับตารางแอดมิน
                 let activeSrc = getValidImageUrl(s.rawData[3]);
                 let photoHtml = activeSrc ? `<img src="${activeSrc}" referrerpolicy="no-referrer" style="width:35px; height:45px; object-fit:cover; border-radius:4px; border:1px solid #e2e8f0; cursor:pointer;" onclick="window.open('${s.rawData[3]}','_blank')">` : `<div style="width:35px;height:45px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#94a3b8;">ไม่มีรูป</div>`;
                 
@@ -850,17 +918,84 @@
         
         if (rd[3]) { 
             let photoUrl = rd[3]; originalImageSrc = photoUrl; croppedPhotoBase64 = ''; 
-            // ใช้ getValidImageUrl สำหรับแสดงในหน้าแก้ไข
             document.getElementById('photoPreviewThumb').src = getValidImageUrl(photoUrl); 
             document.getElementById('photoPlaceholder').style.display = 'none'; 
             document.getElementById('photoPreviewWrap').style.display = 'block'; 
             document.getElementById('photoUploadArea').classList.add('has-photo'); 
         } 
         
-        currentStep = 1; document.querySelectorAll('.wizard-step').forEach((s, i) => s.classList.toggle('active', i === 0)); document.querySelectorAll('.step-item').forEach((s, i) => { s.classList.remove('active', 'completed'); if(i === 0) s.classList.add('active'); }); document.getElementById('btnPrev').style.display = 'none'; document.getElementById('btnNext').style.display = 'inline-block'; document.getElementById('btnSubmit').style.display = 'none'; document.getElementById('admissionForm').dataset.editIndex = index; document.getElementById('admissionForm').dataset.editRow = student.rowNumber; 
+        // FIX: reset step indicator ให้ถูกต้องเมื่อเปิดแก้ไข
+        currentStep = 1; 
+        document.querySelectorAll('.wizard-step').forEach((s, i) => s.classList.toggle('active', i === 0)); 
+        document.querySelectorAll('.step-item').forEach((s, i) => { 
+            s.classList.remove('active', 'completed'); 
+            if(i === 0) s.classList.add('active'); 
+        }); 
+        document.getElementById('btnPrev').style.display = 'none'; 
+        document.getElementById('btnNext').style.display = 'inline-block'; 
+        document.getElementById('btnSubmit').style.display = 'none'; 
+        document.getElementById('btnSubmit').disabled = false; // FIX: reset disabled
+        document.getElementById('admissionForm').dataset.editIndex = index; 
+        document.getElementById('admissionForm').dataset.editRow = student.rowNumber; 
     }
 
-    document.getElementById('admissionForm').addEventListener('submit', async function(e) { e.preventDefault(); const form = document.getElementById('admissionForm'); const editIndex = form.dataset.editIndex; const isEdit = editIndex !== undefined && editIndex !== ''; showProgress(isEdit ? 'กำลังอัปเดตข้อมูล...' : 'กำลังบันทึกข้อมูล...', 10); document.getElementById('btnSubmit').disabled = true; let formDataArray = new Array(82).fill(""); document.querySelectorAll('input[data-col], select[data-col]').forEach(el => formDataArray[parseInt(el.getAttribute('data-col')) - 6] = el.value ); showProgress(isEdit ? 'กำลังอัปเดต...' : 'กำลังตรวจสอบข้อมูล...', 30); if (!isEdit) { try { const checkRes = await fetch(WEB_APP_URL, { method: 'POST', body: JSON.stringify({ action: 'checkDuplicate', data: { year: document.getElementById('applyYear').value, idCard: document.getElementById('formIdCard').value } }) }).then(r => r.json()); if (checkRes.status === 'success' && checkRes.data === true) { hideProgress(); document.getElementById('btnSubmit').disabled = false; alert('❌ เลขประจำตัวประชาชนนี้มีการสมัครแล้ว!\n\nหากต้องการแก้ไขข้อมูล กรุณาไปที่เมนู "ตรวจสอบ"'); return; } } catch(err) {} } showProgress('กำลังอัปโหลดข้อมูล...', 60); let payload = { action: isEdit ? 'updateApplication' : 'submitApplication', data: { year: document.getElementById('applyYear').value, idCard: document.getElementById('formIdCard').value, photoBase64: croppedPhotoBase64 || "", formData: formDataArray } }; if (isEdit) payload.data.rowNumber = globalStudents[parseInt(editIndex)].rowNumber; fetch(WEB_APP_URL, { method: 'POST', body: JSON.stringify(payload) }).then(res => res.json()).then(res => { showProgress('สำเร็จ!', 100); if(res.status === 'success') { setTimeout(() => { hideProgress(); alert(isEdit ? '✅ อัปเดตข้อมูลสำเร็จ!' : '🎉 สมัครเรียนสำเร็จ!'); window.location.reload(); }, 500); } else { hideProgress(); alert('ข้อผิดพลาด: ' + res.message); } }).catch(() => { hideProgress(); alert('เชื่อมต่อระบบไม่ได้ ลองใหม่อีกครั้ง'); document.getElementById('btnSubmit').disabled = false; }); });
+    // ===== FIX: Form Submit - เพิ่ม re-enable ปุ่มเมื่อ error =====
+    document.getElementById('admissionForm').addEventListener('submit', async function(e) { 
+        e.preventDefault(); 
+        const form = document.getElementById('admissionForm'); 
+        const editIndex = form.dataset.editIndex; 
+        const isEdit = editIndex !== undefined && editIndex !== ''; 
+        showProgress(isEdit ? 'กำลังอัปเดตข้อมูล...' : 'กำลังบันทึกข้อมูล...', 10); 
+        document.getElementById('btnSubmit').disabled = true; 
+        
+        let formDataArray = new Array(82).fill(""); 
+        document.querySelectorAll('input[data-col], select[data-col]').forEach(el => formDataArray[parseInt(el.getAttribute('data-col')) - 6] = el.value); 
+        
+        showProgress(isEdit ? 'กำลังอัปเดต...' : 'กำลังตรวจสอบข้อมูล...', 30); 
+        
+        if (!isEdit) { 
+            try { 
+                const checkRes = await fetch(WEB_APP_URL, { method: 'POST', body: JSON.stringify({ action: 'checkDuplicate', data: { year: document.getElementById('applyYear').value, idCard: document.getElementById('formIdCard').value } }) }).then(r => r.json()); 
+                if (checkRes.status === 'success' && checkRes.data === true) { 
+                    hideProgress(); 
+                    document.getElementById('btnSubmit').disabled = false; 
+                    alert('❌ เลขประจำตัวประชาชนนี้มีการสมัครแล้ว!\n\nหากต้องการแก้ไขข้อมูล กรุณาไปที่เมนู "ตรวจสอบ"'); 
+                    return; 
+                } 
+            } catch(err) {} 
+        } 
+        
+        showProgress('กำลังอัปโหลดข้อมูล...', 60); 
+        
+        let payload = { 
+            action: isEdit ? 'updateApplication' : 'submitApplication', 
+            data: { year: document.getElementById('applyYear').value, idCard: document.getElementById('formIdCard').value, photoBase64: croppedPhotoBase64 || "", formData: formDataArray } 
+        }; 
+        if (isEdit) payload.data.rowNumber = globalStudents[parseInt(editIndex)].rowNumber; 
+        
+        fetch(WEB_APP_URL, { method: 'POST', body: JSON.stringify(payload) })
+        .then(res => res.json())
+        .then(res => { 
+            showProgress('สำเร็จ!', 100); 
+            if(res.status === 'success') { 
+                setTimeout(() => { 
+                    hideProgress(); 
+                    alert(isEdit ? '✅ อัปเดตข้อมูลสำเร็จ!' : '🎉 สมัครเรียนสำเร็จ!'); 
+                    window.location.reload(); 
+                }, 500); 
+            } else { 
+                hideProgress(); 
+                alert('ข้อผิดพลาด: ' + res.message); 
+                document.getElementById('btnSubmit').disabled = false; // FIX: re-enable เมื่อ server error
+            } 
+        })
+        .catch(() => { 
+            hideProgress(); 
+            alert('เชื่อมต่อระบบไม่ได้ ลองใหม่อีกครั้ง'); 
+            document.getElementById('btnSubmit').disabled = false; 
+        }); 
+    });
+
     function showProgress(text, percent) { document.getElementById('progressOverlay').style.display = 'flex'; document.getElementById('progressText').textContent = text; document.getElementById('progressBar').style.width = percent + '%'; }
     function hideProgress() { document.getElementById('progressOverlay').style.display = 'none'; }
 
@@ -873,7 +1008,6 @@
         const v = (val) => { if(!val) return "-"; let str = String(val); if(str.startsWith("'")) return str.substring(1); return str; }; 
         
         let photoUrl = rd[3] || ""; 
-        // ใช้ getValidImageUrl สำหรับ PDF
         const activeSrc = getValidImageUrl(photoUrl); 
         const imgTag = activeSrc ? `<img src="${activeSrc}" class="photo-img" referrerpolicy="no-referrer">` : `<div class="photo-placeholder">รูปถ่าย<br>1.5 นิ้ว</div>`; 
         

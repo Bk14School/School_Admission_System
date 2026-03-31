@@ -178,6 +178,8 @@
                 font-size: 0.95rem;
             }
         }
+
+        .form-select.is-invalid { border-color: var(--danger); background-color: #fef2f2; }
     </style>
 </head>
 <body>
@@ -823,9 +825,10 @@ function validateStep(step) {
             const isEmpty = !el.value || el.value.trim() === '';
             if (isEmpty) {
                 markInvalid(el, 'กรุณากรอกข้อมูลในช่องนี้');
-                const label = el.closest('.col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-8, .col-12')
-                    ?.querySelector('.form-label')?.textContent?.replace('*','').trim();
-                errorMessages.push(label || 'ช่องที่ต้องกรอก');
+           const label = el.closest('[class*="col-"]')
+                    ?.querySelector('.form-label')?.textContent?.replace(/[*\s]+$/g, '').trim()
+                    || el.placeholder || 'ช่องที่ต้องกรอก';
+                errorMessages.push(label);
                 valid = false;
             }
         });

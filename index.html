@@ -825,9 +825,13 @@ function validateStep(step) {
             const isEmpty = !el.value || el.value.trim() === '';
             if (isEmpty) {
                 markInvalid(el, 'กรุณากรอกข้อมูลในช่องนี้');
-           const label = el.closest('[class*="col-"]')
-                    ?.querySelector('.form-label')?.textContent?.replace(/[*\s]+$/g, '').trim()
-                    || el.placeholder || 'ช่องที่ต้องกรอก';
+       const labelEl = el.closest('[class*="col-"]')?.querySelector('.form-label');
+                const label = labelEl
+                    ? Array.from(labelEl.childNodes)
+                        .filter(n => n.nodeType === Node.TEXT_NODE)
+                        .map(n => n.textContent.trim())
+                        .join('').replace(/[*:\s]+$/g, '').trim()
+                    : (el.placeholder || 'ช่องที่ต้องกรอก');
                 errorMessages.push(label);
                 valid = false;
             }
